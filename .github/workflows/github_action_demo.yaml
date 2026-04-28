@@ -1,4 +1,5 @@
 name: Basic Login App
+run-name: Basic Login App CI/CD
 
 on:
     push:
