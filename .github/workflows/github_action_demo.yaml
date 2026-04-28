@@ -8,7 +8,7 @@ on:
 jobs:
     testing-taking-build:
 
-        runs-on: ubunut-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
               uses: actions/checkout@v6
