@@ -1,0 +1,35 @@
+name: Basic Login App
+
+on:
+    push:
+        branches:
+            -main
+
+jobs:
+    testing-taking-build:
+
+        runs-on: ubunut-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v6
+            
+            - name: Setup Flutter
+              uses: subosito/flutter-action@v2
+              with:
+                flutter-version: '3.22.0'
+
+            - name: Install Depedencies
+              run: flutter pub get
+            
+            - name: Analyze App
+              run: flutter analyze
+            
+            - name: Unit Test
+              run: flutter test test/unit
+            
+            - name: Widget Test
+              run: flutter test test/widget
+            
+            - name: Take Build Debug APK
+              run: flutter build apk --debug
+            
