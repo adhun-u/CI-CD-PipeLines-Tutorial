@@ -54,7 +54,7 @@ jobs:
               run: flutter build apk --debug
             
             - name: Upload Build
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v7
               with:
                 name: debug-build
                 path: build/app/outputs/flutter-apk/release/app-debug.apk
