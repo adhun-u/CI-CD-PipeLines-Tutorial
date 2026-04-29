@@ -47,7 +47,7 @@ jobs:
                 api-level: 29
                 script: | 
                   flutter devices
-                  flutter test integration_test/ -d android
+                  flutter test integration_test/ -d emulator-5554
             
             - name: Take Build Debug APK
               run: flutter build apk --debug
