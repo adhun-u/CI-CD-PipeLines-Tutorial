@@ -26,29 +26,29 @@ jobs:
             - name: Install Dependencies
               run: flutter pub get
             
-            # - name: Analyze App
-            #   run: flutter analyze
+            - name: Analyze App
+              run: flutter analyze
             
-            # - name: Unit Test
-            #   run: flutter test test/unit
+            - name: Unit Test
+              run: flutter test test/unit
             
-            # - name: Widget Test
-            #   run: flutter test test/widget
+            - name: Widget Test
+              run: flutter test test/widget
 
-            # - name: Enable KVM
-            #   run: |
-            #     echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-            #     sudo udevadm control --reload-rules
-            #     sudo udevadm trigger --name-match=kvm
+            - name: Enable KVM
+              run: |
+                echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+                sudo udevadm control --reload-rules
+                sudo udevadm trigger --name-match=kvm
 
-            # - name: Integration Test
-            #   uses: reactivecircus/android-emulator-runner@v2
-            #   with:
-            #     api-level: 29
-            #     arch: x86_64
-            #     script: | 
-            #       flutter devices
-            #       flutter test integration_test/ -d emulator-5554
+            - name: Integration Test
+              uses: reactivecircus/android-emulator-runner@v2
+              with:
+                api-level: 29
+                arch: x86_64
+                script: | 
+                  flutter devices
+                  flutter test integration_test/ -d emulator-5554
             
             - name: Take Build Debug APK
               run: flutter build apk --debug
